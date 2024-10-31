@@ -167,6 +167,8 @@ footer .copyright {
 }
 
 .testimonial-items {
+    display: grid;
+    grid-template-columns: 1fr;
     transition: transform 0.5s ease;
     display: flex;
     will-change: transform;
@@ -174,8 +176,16 @@ footer .copyright {
 
 .testimonial-item {
     min-width: 100%;
-    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px;
     box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .testimonial-item p {
