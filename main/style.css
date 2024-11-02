@@ -10,7 +10,7 @@
 body {
     min-height: 100vh;
     background-color: beige;
-    min-width: 220px;
+    overflow-x: hidden;
 }
 
 .header {
@@ -24,6 +24,11 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+    background-color: white;
 }
 
 .logo {
@@ -34,6 +39,8 @@ body {
 }
 .navbar {
     display: none;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar.active {
@@ -110,7 +117,6 @@ body {
 footer {
     background-color: #daf0e1;
     color: rgb(80, 96, 241);
-    padding: 10px;
     text-align: center;
     font-size: 16px;
     word-spacing: normal;
@@ -148,12 +154,11 @@ footer .copyright {
 
 .testimonial-section {
     text-align: center;
-    padding: 30px 10px;
+    padding: 20px 10px;
     background-color: f9f9f9;
 }
 
 .testimonial-section h2 {
-    font-size: 15px;
     color: #333;
     margin: 5px 5px;
 }
@@ -162,23 +167,22 @@ footer .copyright {
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    width: 100%;
-    max-width: 600px;
+    width: 95%;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .testimonial-items {
-    display: grid;
-    grid-template-columns: 1fr;
-    transition: transform 0.5s ease;
     display: flex;
-    will-change: transform;
+    transition: transform 0.5s ease;
+    width: 100%;
 }
 
 .testimonial-item {
     min-width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 12px;
+    padding: 15px;
     box-sizing: border-box;
     background-color: #ffffff;
 }
@@ -191,6 +195,7 @@ footer .copyright {
 .testimonial-item p {
     font-size: 12px;
     color: #666;
+    margin-bottom: 5px;
 }
 
 .testimonial-item h4 {
@@ -206,11 +211,60 @@ footer .copyright {
 }
 
 .carousel-controls button {
-    font-size: 12px;
+    font-size: 20px;
     border: none;
     background-color: transparent;
     cursor: pointer;
     padding: 4px 8px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+}
+.gallery img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.aboutus {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu h2 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.menu p {
+    background-color: white;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 0 3px 6px lightslategray;
+    margin: 0 auto;
+    padding: 6px 6px;
+}
+
+.photo-dump h2 {
+    text-align: center;
+    padding-top: 20px;
 }
 
 @media (min-width: 768px) {
@@ -252,7 +306,6 @@ footer .copyright {
         margin-left: 30px;
     }
 
-
     .hamburger {
         display: none;
     }
@@ -268,6 +321,44 @@ footer .copyright {
     footer {
         font-size: 18px;
     }
+
+    .testimonial-carousel {
+        max-width: 600px; 
+    }
+
+    .testimonial-item p {
+        font-size: 18px;
+    }
+
+    .testimonial-item h4 {
+        font-size: 20px;
+    }
+    
+    .gallery {
+        justify-content: flex-start;
+        padding-left: 50px;
+    }
+
+    .gallery img {
+        margin: 0;
+        max-width: 50%;
+        flex: 1;
+    }
+
+    .aboutus {
+        font-size: 21px;
+    }
+
+    .container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .opis1 {
+        flex: 1;
+        max-width: 50%;
+    }
+
 }
 
 @media (min-width: 1024px) {
@@ -302,5 +393,31 @@ footer .copyright {
 
     footer .copyright {
         font-size: 19px;
+    }
+
+    .testimonial-carousel {
+        max-width: 800px; 
+    }
+
+    .testimonial-item p {
+        font-size: 20px;
+    }
+
+    .testimonial-item h4 {
+        font-size: 24px;
+    }
+
+    .carousel-controls button {
+        font-size: 24px;
+    }
+
+    .gallery {
+        justify-content: flex-start;
+        padding-left: 80px;
+    }
+
+    .gallery img {
+        margin: 0;
+        max-width: 400px;       
     }
 }
