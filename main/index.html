@@ -19,10 +19,12 @@
         </button>
 
         <nav class="navbar">
-                <a href="#">O nas</a>
-                <a href="#">Menu</a>
-                <a href="#">Kontakt</a>
-                <a href="#">Rezerwacja</a>
+                <a href="#about-us">O nas</a>
+                <a href="#menu">Menu</a>
+                <a href="#gallery">Zdjęcia</a>
+                <a href="#testimonials">Opinie</a>
+                <a href="#contact">Kontakt</a>
+                <a id="openWindow">Rezerwacja</a>
         </nav>
     </div>
 
@@ -31,11 +33,11 @@
         <p>Restauracja w Rzeszowie zaprasza <br>na pyszne dania</p>
     </div>
 
-    <div class="aboutus">
+    <div class="aboutus" id="about-us">
         <h2>O nas</h2>
         <div class="container">
             <div class="gallery">
-                <img src="image/wine.jpg">       
+                <img src="image/aboutus.jpg">       
             </div>
             <div class="opis1">
                 <p>Witaj w "Między Smakami" - restauracji, która przenosi Cię w kulinarną podróż przez różnorodne smaki. Nasze menu łączy inspiracje z całego świata, od aromatycznych makaronów i soczystych burgerów po rozgrzewające zupy i finezyjne desery. Każde danie przygotowujemy z pasją i dbałością o jakość składników, aby dostarczyć Ci nie tylko wyjątkowego smaku, ale też niezapomnianego doświadczenia. <br> <br>
@@ -44,7 +46,7 @@
         </div>
     </div>
 
-    <div class="menu">
+    <div class="menu" id="menu">
         <h2>Menu</h2>
         <div class="container-menu">
             <div class="menu-description">
@@ -53,18 +55,25 @@
         </div>
     </div>
 
-    <div class="photo-dump">
+    <div class="photo-dump" id="gallery">
         <h2>Galeria zdjęć</h2>
         <div class="image-row1">
             <img src="image/1.jpg" alt="">
             <img src="image/2.jpg" alt="">
             <img src="image/3.jpg" alt="">
+            <img src="image/4.jpg" alt="">
+        </div>
+        <div class="image-row2">
+            <img src="image/5.jpg" alt="">
+            <img src="image/6.jpg" alt="">
+            <img src="image/7.jpg" alt="">
+            <img src="image/8.jpg" alt="">
         </div>
     </div>
 
         
 
-    <div class="testimonial-section">
+    <div class="testimonial-section" id="testimonials">
         <h2>Opinie naszych klientów</h2>
         <div class="testimonial-carousel"> 
             <div class="testimonial-items">
@@ -98,20 +107,33 @@
         </div>
     </div>
 
+    <div id="reservation" class="modal">
+        <div class="modal-content">
+            <span class="x-button" id="x-button">&times;</span>
+            <h2>Rezerwacja stolika</h2>
+            <form id="reservationForm" onsubmit="return submitForm(event)">
+                <label for="name">Imie i nazwisko: </label>
+                <input type="text" name="name" id="name" required>
 
-   
+                <label for="date">Data rezerwacji: </label>
+                <input type="date" name="date" id="date" required>
 
+                <label for="time">Godzina: </label>
+                <input type="time" name="time" id="time" required>
 
+                <label for="people">Liczba osób: </label>
+                <input type="number" name="people" id="people" min="1" max="10" required>
 
+                <label for="phone">Numer kontaktowy: </label>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]{9}" placeholder="123456789" required>
 
-
-
-
-
-
+                <button type="submit">Zarezerwuj</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
-        <div class="footerinfo">
+        <div class="footerinfo" id="contact">
             <p>Adres: ul.Jana Nowaka 2/15 Rzeszów</p>
             <p>E-mail: smaktradycji@op.pl</p>
             <p>Codziennie w godzinach: 12:00 - 22:00</p>

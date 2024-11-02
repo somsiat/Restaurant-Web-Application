@@ -1,3 +1,4 @@
+// Nawigacja hamburgerkiem - mobilki
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector(".hamburger");
     const navbar = document.querySelector(".navbar");
@@ -18,12 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+// Testimonials
 document.addEventListener("DOMContentLoaded", function() {
     const testimonialsContainer = document.querySelector(".testimonial-items");
     const testimonials = document.querySelectorAll(".testimonial-item");
     let currentIndex = 0;
 
-    // Dodaj debugowanie do sprawdzenia elementów
+    // Debugowanie do sprawdzenia elementów
     console.log("Number of testimonials:", testimonials.length);
 
     document.getElementById("next").addEventListener("click", () => {
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Next button clicked. Current index:", currentIndex);
         updateCarousel();
     });
-
+    // Sterowanie lewo prawo
     document.getElementById("prev").addEventListener("click", () => {
         // Aktualizacja indeksu z pętlą
         if (currentIndex > 0) {
@@ -54,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-
+// Ruchomy navbar z tłem
 document.addEventListener("DOMContentLoaded", function(){
     const header = document.querySelector(".header");
 
@@ -66,6 +68,31 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 });
+
+
+//rezerwacja stolika - formularz
+const modal = document.getElementById("reservation");
+const openWindow = document.getElementById("openWindow");
+const closeBtn = document.getElementById("x-button");
+
+openWindow.onclick = function() {
+    modal.style.display = "block"
+}
+
+closeBtn.onclick = function() {
+    modal.style.display = "none"
+}
+
+function submitForm(event) {
+    event.preventDefault();
+
+    alert("Dziękujemy! Rezerwacja przebiegła pomyślnie.");
+
+    modal.style.display = "none";
+
+    return false;
+}
+
 
 
 
