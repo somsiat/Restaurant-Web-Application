@@ -19,43 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-// Testimonials
-document.addEventListener("DOMContentLoaded", function() {
-    const testimonialsContainer = document.querySelector(".testimonial-items");
-    const testimonials = document.querySelectorAll(".testimonial-item");
-    let currentIndex = 0;
-
-    // Debugowanie do sprawdzenia elementów
-    console.log("Number of testimonials:", testimonials.length);
-
-    document.getElementById("next").addEventListener("click", () => {
-        // Aktualizacja indeksu z pętlą
-        if (currentIndex < testimonials.length - 1) {
-            currentIndex++;
-        } else {
-            currentIndex = 0;
-        }
-        console.log("Next button clicked. Current index:", currentIndex);
-        updateCarousel();
-    });
-    // Sterowanie lewo prawo
-    document.getElementById("prev").addEventListener("click", () => {
-        // Aktualizacja indeksu z pętlą
-        if (currentIndex > 0) {
-            currentIndex--;
-        } else {
-            currentIndex = testimonials.length - 1;
-        }
-        console.log("Previous button clicked. Current index:", currentIndex);
-        updateCarousel();
-    });
-
-    function updateCarousel() {
-        testimonialsContainer.style.transform = `translateX(-${100 * currentIndex}%)`;
-        console.log("Updating carousel. TranslateX value:", `-${100 * currentIndex}%`);
-    }
-});
-
 // Ruchomy navbar z tłem
 document.addEventListener("DOMContentLoaded", function(){
     const header = document.querySelector(".header");
@@ -92,6 +55,49 @@ function submitForm(event) {
 
     return false;
 }
+
+
+// Testimonials
+document.addEventListener("DOMContentLoaded", function() {
+    const testimonialsContainer = document.querySelector(".testimonial-items");
+    const testimonials = document.querySelectorAll(".testimonial-item");
+    let currentIndex = 0;
+    let interval;
+
+    function updateCarousel() {
+        testimonialsContainer.style.transform = `translateX(-${100 * currentIndex}%)`;
+    }
+
+    function rotateTestimonials() {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        updateCarousel();
+    }
+
+    function startAutoRotate() {
+        interval = setInterval(rotateTestimonials, 4000);
+    }
+
+    function stopAutoRotate() {
+        clearInterval(interval);
+    }
+
+    document.getElementById("next").addEventListener("click", () => {
+        stopAutoRotate();
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        updateCarousel();
+        startAutoRotate();
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+        stopAutoRotate();
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        updateCarousel();
+        startAutoRotate();
+    });
+
+    startAutoRotate();
+});
+
 
 
 
